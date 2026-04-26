@@ -8,9 +8,12 @@ if [ -d "work" ]; then
   rm -rf -- "work"
 fi
 
-sudo rm -r out/
+if [ -d "out" ]; then
+  rm -rf -- "out"
+fi
 
-mkarchiso -v -w /home/demo/ARCHLINUXISO/carli-1/work -o /home/demo/ARCHLINUXISO/carli-1/out /home/demo/ARCHLINUXISO/carli-1/
+
+mkarchiso -v -w work -o out .
 
 # -v is verbose output to the screen
 # -w specifies the working directory. If the option is not specified, it will default to work in the current directory. If memory allows, it is preferred to place the working directory on tmpfs (as shown above) to speed up the process.
